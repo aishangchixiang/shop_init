@@ -1,0 +1,3 @@
+新上传的数据模型文件shop_model.ndm，用navicat打开查看
+陈冠宇把那个entity类里的实体模型里面的属性写全，参考模型文件（细心准确）
+丁镕斌和蒋亚飞在resources里面写各自页面的代码，参考我上传的springboot中使用vue和axios.pdf文件
