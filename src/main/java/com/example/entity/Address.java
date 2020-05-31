@@ -10,10 +10,13 @@ public class Address {
     private String receiver;
     private String phonenumber;
     private Integer isdefault;
+    private User user = new User();
 
-    public Integer getAddress_id() {
-        return address_id;
-    }
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
+
+    public Integer getAddress_id() { return address_id; }
 
     public void setAddress_id(Integer address_id) {
         this.address_id = address_id;
