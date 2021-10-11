@@ -1,0 +1,55 @@
+.details{
+    margin: 0 auto;
+    width: 1200px;
+    margin-top: 80px;
+}
+.navigation{
+    height: 40px;
+    background-color: black;
+    padding: 10px 0;
+}
+.navigation ul{
+    margin-left: 180px;
+}
+.navigation li{
+    display: block;
+    float: left;
+    margin-top: 10px;
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 80px;
+    line-height: 20px;
+}
+.layui-btn-danger{
+    margin-left: 600px;
+}
+.preview-wrap{
+    margin-top: 55px;
+}
+/*.goodsImformation{
+    width: 1140px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    padding: 30px;
+    border-radius: 5px;
+}
+.goodsImg{
+    float: left;
+    border: 1px solid lightgray;
+}
+.goodsImformation table{
+    margin-left: 600px;
+}
+.goodsImformation table tr{
+    display: block;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+.layui-btn-danger{
+    margin: 40px 0 60px 900px;
+}
+ */

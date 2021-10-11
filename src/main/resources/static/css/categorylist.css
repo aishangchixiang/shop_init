@@ -1,0 +1,55 @@
+.navigation{
+    height: 40px;
+    background-color: black;
+    padding: 10px 0;
+    width: 1920px;
+}
+.navigation ul{
+    margin-left: 180px;
+}
+.navigation li{
+    display: block;
+    float: left;
+    margin-top: 10px;
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 80px;
+    line-height: 20px;
+}
+
+.categorylist-box{
+    background-color: white;
+    width: 1200px;
+    position: absolute;
+    z-index: 10;
+    margin: 5% 0 0 19%;
+    font-size: 24px;
+    padding: 40px 0;
+    border-radius:20px;
+    border: 1px solid lightgrey;
+}
+.categorylist-all{
+    margin-left:10%;
+}
+.categorylist-box .categorylist{
+    float: left;
+    margin: 0 60px;
+}
+.categorylist-box .categorylist img{
+    width: 200px;
+    height: 200px;
+}
+.categorylist-box .categorylist a{
+    display: block;
+    text-align: center;
+}
+.categorylist-box td{
+    padding: 6px;
+}
+.categorylist-bgimg{
+    position: relative;
+    z-index: 1;
+}

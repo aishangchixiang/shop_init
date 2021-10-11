@@ -1,0 +1,23 @@
+.navigation{height: 40px;background-color: black;padding: 10px 0;}
+.navigation ul{margin-left: 180px;}
+.navigation li{display: block;float: left;margin-top: 10px;}
+.navigation ul li a{color: white;text-decoration: none;font-size: 18px;margin-left: 80px;line-height: 20px;}
+
+.goodslist-box{
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid darkgrey;
+    width: 600px;
+    padding: 40px 0;
+    margin: 4% 0 0 34%;
+    font-size: 24px;
+}
+.goodslist-box table td{
+    padding: 8px 14px;
+}
+.goodslist-bgimg{
+    position: relative;
+    z-index: 1;
+}

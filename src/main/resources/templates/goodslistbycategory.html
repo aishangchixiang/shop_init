@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/goodslistbycatebory.css">
+    <link  type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/layui.css">
+    <script type="text/javascript" src="/js/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <style>
+        .goodslist-box{
+            position: absolute;
+            z-index: 10;
+            background-color: white;
+            border-radius: 20px;
+            border: 1px solid darkgrey;
+            width: 600px;
+            padding: 40px 0;
+            margin: 2% 0 0 34%;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+<div  class="navigation">
+    <ul>
+        <li>
+            <a href="/user/toindex">主页</a>
+        </li>
+        <!--用户登录-->
+        <li>
+            <a href="/user/tologin" id="islogin">登录</a>
+        </li>
+        <!--用户注册-->
+        <li>
+            <a href="/user/toregist">注册</a>
+        </li>
+        <!--购物车-->
+        <li>
+            <a href="/user/tologin" id="orderlist">购物车</a>
+        </li>
+        <!--商品分类-->
+        <li>
+            <a href="/category/tocategorylist">商品更多分类</a>
+        </li>
+    </ul>
+</div>
+<div class="goodslist-box">
+    <div id="goodslist">
+
+    </div>
+    <div style="display: block; margin-top: 20px;" id="test" align="center">
+
+    </div>
+</div>
+
+<img class="goodslist-bgimg" src="/pic/goodslistbycatebory-bgimg.jpg">
+<div class="footer">
+    <div class="ng-promise-box">
+        <div class="ng-promise w1200">
+            <p class="text">
+                <a class="icon1" >7天无理由退换货</a>
+                <a class="icon2" >满99元全场免邮</a>
+                <a class="icon3" style="margin-right: 0" >100%品质保证</a>
+            </p>
+        </div>
+    </div>
+    <div class="mod_help w1200">
+        <p class="coty">服装商城版权所有 &copy; 2012-2020</p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        var goodslist = document.getElementById("goodslist");
+        var categoryid=[[${categoryid}]];
+        var pagenumber=[[${pagenumber}]];
+        $.ajax({
+            url: '/goods/getgoodslistbycategory?id='+categoryid+"&pagenumber="+pagenumber,
+            contentType:"application/json;charset=utf-8",
+            type: 'post',
+            success: function (data) {
+                var html = "";
+                for (var i = 0; i < data.pageSize; i++) {
+                    var goods = data.list[i];
+                    html +="<div style='margin: 0 10px 40px 10px;' class='category-list'>"+"<img style='float: left' width='150px' height='150px' src='"+ goods.goodsimage+"'>"+"<br>"+"<a style='margin-left: 20px' href='/goods/togoodsdetailsbyid?id="+goods.goodsid+"'>"+goods.goodsname +"</a>"+"<br>"+"<br>"+"<a style='margin-left:260px '>"+"优惠价："+goods.goodsdiscountprice+"</a>"+"<br>" +"</div>";
+                }
+                $('#goodslist').append(html);
+                var str = "";
+                for(var i=1;i<=data.pages;i++){
+                    str+="<a href='/goods/togoodslistbycategory?id="+categoryid+"&pagenumber="+i+"'>"+i+"</a>";
+                }
+                $('#test').append(str);
+                console.log(html);
+            }
+        })
+    })
+
+    $(document).ready(function(){
+        if(sessionStorage.getItem("user")!=null){
+            var username=sessionStorage.getItem("username");
+            $("#islogin").text(sessionStorage.getItem("username"));
+            $("#islogin").attr("href","/user/togetuserdetails?username="+username);
+            $("#orderlist").attr("href","/cart/tocartlist");
+        }
+    })
+</script>
+</body>
+</html>

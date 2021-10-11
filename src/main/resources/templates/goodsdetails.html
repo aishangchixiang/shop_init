@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/goodsdetails.css" />
+    <link rel="stylesheet" type="text/css" href="/css/goodsdetails.css">
+    <link rel="stylesheet" type="text/css" href="/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script type="text/javascript" src="/js/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>Title</title>
+</head>
+<div  class="navigation">
+    <ul>
+        <li>
+            <a href="/user/toindex">主页</a>
+        </li>
+        <!--用户登录-->
+        <li>
+            <a href="/user/tologin" id="islogin">登录</a>
+        </li>
+        <!--用户注册-->
+        <li>
+            <a href="/user/toregist">注册</a>
+        </li>
+        <!--购物车-->
+        <li>
+            <a href="/user/tologin" id="orderlist">购物车</a>
+        </li>
+        <!--商品分类-->
+        <li>
+            <a href="/category/tocategorylist">商品更多分类</a>
+        </li>
+    </ul>
+</div>
+<div class="details">
+    <div class="content content-nav-base datails-content">
+        <div class="main-nav">
+            <div class="product-intro layui-clear">
+                <div class="preview-wrap">
+                    <img src="/pic/goodsdetails-goodImg.jpg" width="400px" height="400px;">
+                </div>
+                <div class="itemInfo-wrap">
+                    <div class="itemInfo">
+                        <div class="title">
+                            <h4 id="goodsname"></h4>
+                            <span><i class="layui-icon layui-icon-rate-solid"></i>收藏</span>
+                        </div>
+                        <div class="summary">
+                            <p class="reference"><span>参考价</span> <del id="original"></del></p>
+                            <p class="activity"><span>活动价</span><strong id="discount" class="price"><i>￥</i></strong></p>
+                            <p class="address-box"><span>商品库存</span><strong class="address" id="inventoryvolum"></strong></p>
+                            <p class="address-box"><span>商品原产地</span><strong class="address" id="origin"></strong></p>
+                            <p class="address-box"><span>商品原料</span><strong class="address" id="material"></strong></p>
+                            <p class="address-box"><span>商品物流</span><strong class="address" id="freight"></strong></p>
+                            <p class="address-box"><span>商品上架日期</span><strong class="address" id="listingdate"></strong></p>
+                            <p class="address-box"><span>商品销量</span><strong class="address" id="salesvolume"></strong></p>
+                            <p class="address-box"><span>商品描述</span><strong class="address" id="description"></strong></p>
+                        </div>
+                        <div>
+                            <a id="addcart" class="layui-btn layui-btn-danger" onclick="addcart()">加入购物车</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="ng-promise-box">
+        <div class="ng-promise w1200">
+            <p class="text">
+                <a class="icon1" >7天无理由退换货</a>
+                <a class="icon2" >满99元全场免邮</a>
+                <a class="icon3" style="margin-right: 0" >100%品质保证</a>
+            </p>
+        </div>
+    </div>
+    <div class="mod_help w1200">
+        <p class="coty">服装商城版权所有 &copy; 2012-2020</p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+
+    var goodsid=[[${goodsid}]];
+    function addcart(){
+        if(sessionStorage.getItem("user")!=null){
+            $("#addcart").attr("href","/cart/addcartitem?goodsid="+goodsid);
+        }
+        else{
+            alert("请先登录！");
+            $("#addcart").attr("href","/user/tologin");
+        }
+    }
+    $(function(){
+        var goodsname = document.getElementById("goodsname");
+        var description = document.getElementById("description");
+        var original = document.getElementById("original");
+        var discount = document.getElementById("discount");
+        var inventoryvolum = document.getElementById("inventoryvolum");
+        var origin = document.getElementById("origin");
+        var material = document.getElementById("material");
+        var freight = document.getElementById("freight");
+        var listingdate = document.getElementById("listingdate");
+        var salesvolume = document.getElementById("salesvolume");
+        var image = document.getElementById("image");
+
+        if(sessionStorage.getItem("user")!=null){
+            $("#addcart").attr("href","/cart/addcartitem?goodsid="+goodsid);
+        }
+        else{
+            $("#addcart").attr("href","/user/tologin");
+        }
+
+
+        $.ajax({
+            url: '/goods/getgoodsdetailsbyid?id='+goodsid,
+            contentType:"application/json;charset=utf-8",
+            type: 'post',
+            success: function (data) {
+                $('#goodsname').html(data.goodsname);
+                $('#description').html(data.goodsdescription);
+                $('#original').html(data.goodsoriginalprice);
+                $('#discount').html(data.goodsdiscountprice);
+                $('#inventoryvolum').html(data.goodsinventoryvolum);
+                $('#origin').html(data.goodsorigin);
+                $('#material').html(data.goodsmaterial);
+                $('#freight').html(data.goodsfreight);
+                $('#listingdate').html(data.goodslistingdate);
+                $('#salesvolume').html(data.goodssalesvolume);
+                $('#image').html(data.goodsimage);
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link  type="text/css" rel="stylesheet" href="/css/index.css"/>
+    <link  type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/layui.css">
+    <script type="text/javascript" src="/js/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+</head>
+<body onload="init()">
+<script src="/js/jquery-1.11.3.js"></script>
+<script>
+    function tocart(){
+        if(sessionStorage.getItem("user")!=null){
+            $("#orderlist").attr("href","/cart/tocartlist");
+        }
+        else{
+            alert("请先登录！");
+            $("#orderlist").attr("href","/user/tologin");
+        }
+    }
+    $(document).ready(function(){
+        if(sessionStorage.getItem("user")!=null){
+            var username=sessionStorage.getItem("username");
+            $("#islogin").text(sessionStorage.getItem("username"));
+            $("#islogin").attr("href","/user/togetuserdetails?username="+username);
+            $("#orderlist").attr("href","/cart/tocartlist");
+        }
+    })
+</script>
+<div class="all">
+    <div  class="navigation">
+        <ul>
+            <li>
+                <a href="/user/toindex">主页</a>
+            </li>
+            <!--用户登录-->
+            <li>
+                <a href="/user/tologin" id="islogin">登录</a>
+            </li>
+            <!--用户注册-->
+            <li>
+                <a href="/user/toregist">注册</a>
+            </li>
+            <!--购物车-->
+            <li>
+                <a id="orderlist" onclick="tocart()">购物车</a>
+            </li>
+            <!--商品分类-->
+            <li>
+                <a href="/category/tocategorylist">商品更多分类</a>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <img src="/pic/index-RC-img.jpg">
+    <div class="content">
+        <div class="hot-recommend-con">
+            <div class="hot-con1 w1200 layui-clear">
+                <div class="item">
+                    <h4>热销推荐</h4>
+                    <div class="big-img">
+                        <a href="/category/tocategorylist"><img src="/pic/index-hot1.png"></a>
+                    </div>
+                    <div class="small-img">
+                        <a href="/category/tocategorylist"><img src="/pic/index-hot2.png"></a>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="top-img">
+                        <a href="/category/tocategorylist"><img src="/pic/index-hot3.jpg"></a>
+                    </div>
+                    <div class="bottom-img">
+                        <a href="/category/tocategorylist"><img src="/pic/index-hot4.jpg"></a>
+                        <a class="baby-cream" href="/category/tocategorylist"><img src="/pic/index-hot5.jpg"></a>
+                    </div>
+                </div>
+                <div class="item item1 margin0 padding0">
+                    <a href="/category/tocategorylist"><img src="/pic/index-hot6.jpg"></a>
+                    <a href="/category/tocategorylist"><img class="btm-img" src="/pic/index-hot7.jpg"></a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="product-cont w1200" id="product-cont">
+            <div class="product-item product-item1 layui-clear">
+                <div class="left-title">
+                    <h4><i>1F</i></h4>
+                    <img src="/pic/index-icon-gou.png">
+                    <h5>女士服装</h5>
+                </div>
+                <div class="right-cont">
+                    <a href="javascript:;" class="top-img"><img src="/pic/index-female-banner.jpg" alt=""></a>
+                    <div class="img-box">
+                        <a href="javascript:;"><img src="/pic/index-female-1.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-female-2.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-female-3.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-female-4.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-female-5.jpg"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-item product-item2 layui-clear">
+                <div class="left-title">
+                    <h4><i>2F</i></h4>
+                    <img src="/pic/index-icon-gou.png">
+                    <h5>男士服装</h5>
+                </div>
+                <div class="right-cont">
+                    <a href="javascript:;" class="top-img"><img src="/pic/index-male-banner.jpg" alt=""></a>
+                    <div class="img-box">
+                        <a href="javascript:;"><img src="/pic/index-male-1.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-male-2.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-male-3.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-male-4.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-male-5.jpg"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="product-item product-item3 layui-clear">
+                <div class="left-title">
+                    <h4><i>3F</i></h4>
+                    <img src="/pic/index-icon-gou.png">
+                    <h5>儿童服装</h5>
+                </div>
+                <div class="right-cont">
+                    <a href="javascript:;" class="top-img"><img src="/pic/index-child-banner.jpg" alt=""></a>
+                    <div class="img-box">
+                        <a href="javascript:;"><img src="/pic/index-child-1.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-child-2.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-child-3.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-child-4.jpg"></a>
+                        <a href="javascript:;"><img src="/pic/index-child-5.jpg"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

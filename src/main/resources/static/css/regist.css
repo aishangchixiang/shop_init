@@ -1,0 +1,57 @@
+.navigation{
+    height: 40px;
+    background-color: black;
+    padding: 10px 0;
+}
+.navigation ul{
+    margin-left: 180px;
+}
+.navigation li{
+    display: block;
+    float: left;
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 80px;
+    line-height: 0;
+}
+.regist-box{
+    position: absolute;
+    z-index: 10;
+    margin: 10% 0 0 40%;
+
+}
+.regist-bgimg{
+    position: relative;
+    z-index: 1;
+}
+td{
+    font-size: 20px;
+}
+input{
+    width: 300px;
+    border-color: darkgrey;
+    border-width: thin;
+    height: 26px;
+}
+table{
+    margin-top: 10%;
+    width: auto;
+    height: 400px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 20px;
+    border: 1px solid darkgrey;
+}
+
+button{
+    width: 300px;
+    height: 40px;
+    margin-left: 2%;
+    border-radius:5px;
+    background-color: #81a893;
+    color: white;
+    font-size: 20px;
+}

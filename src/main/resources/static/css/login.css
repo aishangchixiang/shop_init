@@ -1,0 +1,23 @@
+.navigation{
+    border: 1px solid black;
+}
+.form-box{
+    position: absolute;
+    z-index:10;
+    width: 300px;
+    height: 390px;
+    border:1px solid #d9dadc;
+    background: #fff;
+    top: 196px;
+    right: 90px;
+    padding:0 30px;
+}
+.login-bgimg{
+    position: relative;
+    z-index: 1;
+}
+.login-content .login-bg .layui-input-inline{
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+

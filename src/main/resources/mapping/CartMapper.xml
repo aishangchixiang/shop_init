@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.CartMapper">
+    <resultMap id="withgoodsname" type="com.example.entity.Cart">
+        <id column="goodsid" property="goodsid" jdbcType="INTEGER" />
+        <result column="cartid" property="cartid" javaType="INTEGER"/>
+        <result column="quantity" property="quantity" jdbcType="INTEGER" />
+        <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+        <association property="goods" javaType="com.example.entity.Goods">
+            <id column="goodsid" property="goodsid" jdbcType="INTEGER" />
+            <result column="goodsid" property="goodsid" jdbcType="INTEGER" />
+            <result column="goodsname" property="goodsname" jdbcType="VARCHAR" />
+        </association>
+    </resultMap>
+    <select id="addcartitem">
+        insert into cart(goodsid,quantity,userid,createtime,updatetime) value(#{goodsid},#{quantity},#{userid},now(),now())
+    </select>
+    <select id="getcartlist" resultMap="withgoodsname">
+        select cart.cartid,goods.goodsid,goods.goodsname,cart.quantity,cart.updatetime from cart left join goods on cart.goodsid=goods.goodsid where cart.userid=#{userid}
+    </select>
+    <select id="getcartlistbygoodsid" resultType="com.example.entity.Cart">
+        select * from cart where userid=#{userid} and goodsid=#{goodsid}
+    </select>
+    <select id="updatequantitybygoodsid">
+        update cart set quantity=#{quantity},updatetime=now() where userid=#{userid} and goodsid=#{goodsid}
+    </select>
+    <select id="getcartbyid" parameterType="java.lang.Integer" resultType="com.example.entity.Cart">
+        select * from cart where cartid=#{cartid}
+    </select>
+    <select id="deletecartbyid" parameterType="java.lang.Integer">
+        delete from cart where cartid=#{cartid}
+    </select>
+    <select id="updatequantity">
+        update cart set quantity=#{quantity} where cartid=#{cartid}
+    </select>
+
+</mapper>

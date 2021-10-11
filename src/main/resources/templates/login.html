@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/layui.css">
+    <script type="text/javascript" src="/js/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+</head>
+<body>
+<div class="content content-nav-base  login-content">
+    <div class="main-nav">
+        <div class="inner-cont0">
+            <div class="inner-cont1 w1200">
+                <div class="inner-cont2">
+                    <a href="/user/toindex">主页</a>
+                    <a href="/user/tologin" class="active">登录</a>
+                    <a href="/user/toregist">注册</a>
+                    <a href="/user/tologin">购物车</a>
+                    <a href="/category/tocategorylist">更多商品分类</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login-bg">
+            <div class="form-box">
+                <form class="layui-form">
+                    <legend>登录</legend>
+                    <div class="layui-form-item">
+                        <div class="layui-inline iphone">
+                            <div class="layui-input-inline">
+                                <input  type="text" name="username" id="username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline veri-code">
+                            <div class="layui-input-inline">
+                                <input  type="password" name="password" id="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item login-btn">
+                        <div class="layui-input-block">
+                            <button type="button" class="layui-btn layui-btn-lg" id="login-btn" onclick="loginbutton()">登录</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <img class="login-bgimg" src="/pic/login-bgimg.jpg">
+    </div>
+</div>
+<div class="footer">
+    <div class="ng-promise-box">
+        <div class="ng-promise w1200">
+            <p class="text">
+                <a class="icon1" >7天无理由退换货</a>
+                <a class="icon2" >满99元全场免邮</a>
+                <a class="icon3" style="margin-right: 0" >100%品质保证</a>
+            </p>
+        </div>
+    </div>
+    <div class="mod_help w1200">
+        <p class="coty">服装商城版权所有 &copy; 2012-2020</p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+
+    function loginbutton(){
+        var username = $('#username').val();
+        var password = $('#password').val();
+        $.ajax({
+            url:'/user/userlogin',
+            type:'post',
+            data:{
+                username: username,
+                password: password
+            },
+            success: function(data){
+                if(data!= 'fail'){
+                    /* 返回的是一个User对象，通过data.username获取值 */
+                    sessionStorage.setItem('user',data);
+                    sessionStorage.setItem('username',data.username);
+                    alert("WelCome" + data.username);
+                    location.href = "toindex";
+                }else{
+                    alert("fail");
+                }
+            }
+        })
+    }
+    $(document).ready(function(){
+        if(sessionStorage.getItem("user")!=null){
+            var username=sessionStorage.getItem("username");
+            $("#islogin").text(sessionStorage.getItem("username"));
+            $("#islogin").attr("href","/user/togetuserdetails?username="+username);
+            $("#orderlist").attr("href","/cart/tocartlist");
+        }
+    })
+
+</script>
+</body>
+</html>

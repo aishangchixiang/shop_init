@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/cartlist.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/layui.css">
+    <script type="text/javascript" src="/js/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+</head>
+<body>
+<div  class="navigation">
+    <ul>
+        <li>
+            <a href="/user/toindex">主页</a>
+        </li>
+        <!--用户登录-->
+        <li>
+            <a href="/user/tologin" id="islogin">登录</a>
+        </li>
+        <!--用户注册-->
+        <li>
+            <a href="/user/toregist">注册</a>
+        </li>
+        <!--购物车-->
+        <li>
+            <a href="/user/tologin" id="orderlist">购物车</a>
+        </li>
+        <!--商品分类-->
+        <li>
+            <a href="/category/tocategorylist">商品更多分类</a>
+        </li>
+    </ul>
+</div>
+<div class="cartlist-box">
+    <table id="cartlist" align="center" border="1">
+        <tr>
+            <td>已选商品</td><td>已选数量</td><td>更新时间</td><td>增加</td><td>减少</td>
+        </tr>
+    </table>
+</div>
+
+<!--当心购物车列表过长超出背景图片-->
+<img class="cartlist-bgimg" src="/pic/cartlist-bgimg.jpg">
+<div class="footer">
+    <div class="ng-promise-box">
+        <div class="ng-promise w1200">
+            <p class="text">
+                <a class="icon1" >7天无理由退换货</a>
+                <a class="icon2" >满99元全场免邮</a>
+                <a class="icon3" style="margin-right: 0" >100%品质保证</a>
+            </p>
+        </div>
+    </div>
+    <div class="mod_help w1200">
+        <p class="coty">服装商城版权所有 &copy; 2012-2020</p>
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var cartlist = document.getElementById("cartlist");
+        $.ajax({
+            url: '/cart/getcartlist',
+            contentType:"application/json;charset=utf-8",
+            type: 'post',
+            success: function (data) {
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    var cart = data[i];
+                    html +="<tr>"+"<td>"+"<a href='/goods/togoodsdetailsbyid?id="+cart.goods.goodsid+"'>"+cart.goods.goodsname +"</a>"+ "</td>"+"<td>"+cart.quantity + "</td>"+"<td>"+cart.updatetime + "</td>";
+                    html +="<td>"+"<a href='/cart/subquantity?cartid="+cart.cartid+"'>"+"-"+"</a>"+"</td>"+"<td>"+"<a href='/cart/addquantity?cartid="+cart.cartid+"'>"+"+"+"</a>"+ "</td>"+"</tr>";
+                }
+                $('#cartlist').append(html);
+                console.log(html);
+            }
+        })
+    })
+
+
+
+    $(document).ready(function(){
+        if(sessionStorage.getItem("user")!=null){
+            var username=sessionStorage.getItem("username");
+            $("#islogin").text(sessionStorage.getItem("username"));
+            $("#islogin").attr("href","/user/togetuserdetails?username="+username);
+            $("#orderlist").attr("href","/cart/tocartlist");
+        }
+    })
+</script>
+</html>

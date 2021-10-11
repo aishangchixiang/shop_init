@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/userdetails.css">
+    <link rel="stylesheet" type="text/css" href="/css/layui.css">
+</head>
+<body>
+<div  class="navigation">
+    <ul>
+        <li>
+            <a href="/user/toindex">主页</a>
+        </li>
+        <!--用户登录-->
+        <li>
+            <a href="/user/tologin" id="islogin">登录</a>
+        </li>
+        <!--用户注册-->
+        <li>
+            <a href="/user/toregist">注册</a>
+        </li>
+        <!--购物车-->
+        <li>
+            <a href="/user/tologin" id="orderlist">购物车</a>
+        </li>
+        <!--商品分类-->
+        <li>
+            <a href="/category/tocategorylist">商品更多分类</a>
+        </li>
+    </ul>
+</div>
+<div class="userInformation">
+<table id="userdetails">
+    <tr>
+        <td>用户名:</td><td><b id="name"></b></td>
+    </tr>
+    <tr>
+        <td>年龄:</td><td><b id="age"></b></td>
+    </tr>
+    <tr>
+        <td>性别:</td><td><b id="gender"></b></td>
+    </tr>
+    <tr>
+        <td>邮箱:</td><td><b id="email"></b></td>
+    </tr>
+    <tr>
+        <td>权限:</td><td><b id="jurisdiction"></b></td>
+    </tr>
+</table>
+    <button class="layui-btn layui-btn-danger" id="updateuser">修改用户信息</button>
+    <button class="layui-btn layui-btn-danger" id="unlogin">退出登录</button>
+</div>
+<img class="userdetails-bg" src="/pic/userdetails-bgimg.jpg">
+<script src="/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    $("#updateuser").click(function () {
+        var username="[[${username}]]";
+        location.href="toupdateuserdetails?username="+username;
+    })
+    $("#unlogin").click(function () {
+        sessionStorage.clear();
+        alert("已退出登录");
+        location.href="toindex";
+    })
+
+    $(function(){
+        var username="[[${username}]]";
+        var name=document.getElementById("name");
+        var age = document.getElementById("age");
+        var gender = document.getElementById("gender");
+        var email = document.getElementById("email");
+        var jurisdiction = document.getElementById("jurisdiction");
+        $.ajax({
+            url: '/user/getuserdetails?username='+username,
+            contentType:"application/json;charset=utf-8",
+            type: 'post',
+            success: function (data) {
+                $('#name').html(data.username);
+                $('#age').html(data.age);
+                $('#gender').html(data.gender);
+                $('#email').html(data.email);
+                $('#jurisdiction').html(data.jurisdiction);
+                console.log(data)
+            }
+        })
+    })
+
+    $(document).ready(function(){
+        if(sessionStorage.getItem("user")!=null){
+            var username=sessionStorage.getItem("username");
+            $("#islogin").text(sessionStorage.getItem("username"));
+            $("#islogin").attr("href","/user/togetuserdetails?username="+username);
+            $("#orderlist").attr("href","/cart/tocartlist");
+        }
+    })
+</script>
+</body>
+</html>

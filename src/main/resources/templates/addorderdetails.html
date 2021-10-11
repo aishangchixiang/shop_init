@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form align="center" action="order/addorderdetails" method="post">
+    <span>商品id：</span><input type="hidden" id="goodsid" value="${goods.id}"><br>
+    <span>商品名称：</span><a type="hidden" id="goodsname" value="${goods.name}"></a><br>
+    <span>订单细节名字：</span><input type="hidden" id="orderdetailsname" value="${goods.name}"><br>
+    <span>尺寸：</span><input type="text" id="orderdetailssize"><br>
+    <span>颜色：</span><input type="text" id="orderdetailscolor"><br>
+    <span>订单数量：</span><input type="text" id="orderdetailsnumber"><br>
+    <span>订单价格：</span><input type="hidden" id="orderdetailsprice"><br>
+    <span>图片：</span><br>
+    <input type="submit" vaule="提交订单">
+</form>
+</body>
+</html>

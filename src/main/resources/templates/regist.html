@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="/css/regist.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+<div  class="navigation">
+    <ul>
+        <li>
+            <a href="/user/toindex">主页</a>
+        </li>
+        <!--用户登录-->
+        <li>
+            <a href="/user/tologin" id="islogin">登录</a>
+        </li>
+        <!--用户注册-->
+        <li>
+            <a href="/user/toregist">注册</a>
+        </li>
+        <!--购物车-->
+        <li>
+            <a href="/user/tologin" id="orderlist">购物车</a>
+        </li>
+        <!--商品分类-->
+        <li>
+            <a href="/category/tocategorylist">商品更多分类</a>
+        </li>
+    </ul>
+</div>
+<div class="regist-box">
+<table align="center" >
+    <tr>
+        <td>用户名<input type="text" name="username" id="username"/></td>
+    </tr>
+    <tr>
+        <td>密&nbsp&nbsp&nbsp码<input type="password" name="password" id="password"/></td>
+    </tr>
+    <tr>
+        <td><button type="button" onclick="regist()" id="registbtn">注册</button></td>
+    </tr>
+</table>
+</div>
+<img class="regist-bgimg" src="/pic/regist-bgimg.jpg">
+<div class="footer">
+    <div class="ng-promise-box">
+        <div class="ng-promise w1200">
+            <p class="text">
+                <a class="icon1" >7天无理由退换货</a>
+                <a class="icon2" >满99元全场免邮</a>
+                <a class="icon3" style="margin-right: 0" >100%品质保证</a>
+            </p>
+        </div>
+    </div>
+    <div class="mod_help w1200">
+        <p class="coty">服装商城版权所有 &copy; 2012-2020</p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.3.js"></script>
+<script>
+    function regist(){
+        var username = $('#username').val();
+        var password = $('#password').val();
+        $.ajax({
+            url:'/user/regist',
+            type:'post',
+            data:{
+                username: username,
+                password: password
+            },
+            success: function(data){
+                if(data != 'fail'){
+                    /* 返回的是一个User对象，通过data.username获取值 */
+                    alert("注册成功");
+                    location.href = "toindex";
+                }else{
+                    alert("注册失败，请重新确认填写的信息是否完整，若完整请更换用户名后再试！");
+                }
+
+            }
+        })
+    }
+
+    $(document).ready(function(){
+        if(sessionStorage.getItem("user")!=null){
+            var username=sessionStorage.getItem("username");
+            $("#islogin").text(sessionStorage.getItem("username"));
+            $("#islogin").attr("href","/user/togetuserdetails?username="+username);
+            $("#orderlist").attr("href","/cart/tocartlist");
+        }
+    })
+
+</script>
+</body>
+</html>

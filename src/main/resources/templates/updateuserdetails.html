@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/updateuserdetails.css">
+    <link  type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/layui.css">
+    <script type="text/javascript" src="/js/layui.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+</head>
+<body>
+<div  class="navigation">
+    <ul>
+        <li>
+            <a href="/user/toindex">主页</a>
+        </li>
+        <!--用户登录-->
+        <li>
+            <a href="/user/tologin" id="islogin">登录</a>
+        </li>
+        <!--用户注册-->
+        <li>
+            <a href="/user/toregist">注册</a>
+        </li>
+        <!--购物车-->
+        <li>
+            <a href="/user/tologin" id="orderlist">购物车</a>
+        </li>
+        <!--商品分类-->
+        <li>
+            <a href="/category/tocategorylist">商品更多分类</a>
+        </li>
+    </ul>
+</div>
+<div class="update-box">
+<table align="center" id="updateuser">
+    <tr>
+        <td>用户名：<a id="username"></a></td>
+    </tr>
+    <tr>
+        <td>密&nbsp&nbsp&nbsp码：<input id="password" type="password"></td>
+    </tr>
+    <tr>
+        <td>年&nbsp&nbsp&nbsp龄：<input id="age" type="text"></td>
+    </tr>
+    <tr>
+        <td>邮&nbsp&nbsp&nbsp箱：<input id="email" type="email"></td>
+    </tr>
+    <tr>
+        <td>性&nbsp&nbsp&nbsp别：<select id="gender">
+            <option value="男">男</option>
+            <option value="女">女</option>
+            <option value="其他">其他</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+        <td><button class="layui-btn layui-btn-lg" onclick="update()">更新</button></td>
+    </tr>
+</table>
+</div>
+
+<img class="update-bgimg" src="/pic/updateuserdetails-bgimg.jpg">
+
+<div class="footer">
+    <div class="ng-promise-box">
+        <div class="ng-promise w1200">
+            <p class="text">
+                <a class="icon1" >7天无理由退换货</a>
+                <a class="icon2" >满99元全场免邮</a>
+                <a class="icon3" style="margin-right: 0" >100%品质保证</a>
+            </p>
+        </div>
+    </div>
+    <div class="mod_help w1200">
+        <p class="coty">服装商城版权所有 &copy; 2012-2020</p>
+    </div>
+</div>
+<script src="/js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#username").text("[[${user.username}]]");
+        $("#password").attr("value","[[${user.password}]]");
+        $("#age").attr("value","[[${user.age}]]");
+        $("#email").attr("value","[[${user.email}]]");
+
+    })
+    function update() {
+        var username=$("#username").text();
+        var password=$("#password").val();
+        var age=$("#age").val();
+        var email=$("#email").val();
+        var gender=$("#gender").val();
+        $.ajax({
+            url:'/user/updateuserdetails',
+            type:'post',
+            data:{
+                username: username,
+                password: password,
+                age:age,
+                email:email,
+                gender:gender
+            },
+            success: function(data){
+                if(data!= 'fail'){
+                    /* 返回的是一个User对象，通过data.username获取值 */
+                    alert("修改成功")
+                    location.href = "togetuserdetails?username="+username;
+                }else{
+                    alert("fail");
+                }
+            }
+        })
+
+    }
+</script>
+</body>
+</html>
