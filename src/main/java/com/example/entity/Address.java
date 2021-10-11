@@ -1,8 +1,8 @@
 package com.example.entity;
 
 public class Address {
-    private Integer address_id;
-    private Integer user_id;
+    private Integer addressid;
+    private Integer userid;
     private String province;
     private String city;
     private String region;
@@ -10,24 +10,22 @@ public class Address {
     private String receiver;
     private String phonenumber;
     private Integer isdefault;
-    private User user = new User();
+    private User user;
 
-    public User getUser() { return user; }
-
-    public void setUser(User user) { this.user = user; }
-
-    public Integer getAddress_id() { return address_id; }
-
-    public void setAddress_id(Integer address_id) {
-        this.address_id = address_id;
+    public Integer getAddressid() {
+        return addressid;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public void setAddressid(Integer addressid) {
+        this.addressid = addressid;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
     public String getProvince() {
@@ -86,4 +84,11 @@ public class Address {
         this.isdefault = isdefault;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

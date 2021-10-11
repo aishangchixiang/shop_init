@@ -3,8 +3,8 @@ package com.example.entity;
 public class GoodsSizeRelatinship {
     private Integer goods_id;
     private Integer size_id;
-    private Goods goods = new Goods();
-    private GoodsSize goodsSize = new GoodsSize();
+    private Goods goods;
+    private GoodsSize goodsSize;
 
     public Goods getGoods() {
         return goods;

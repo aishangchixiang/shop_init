@@ -1,10 +1,26 @@
 package com.example.entity;
 
 public class GoodsColorRelationship {
-    private Integer goods_id;
-    private Integer color_id;
-    private Goods goods = new Goods();
-    private GoodsColor goodsColor = new GoodsColor();
+    private Integer goodsid;
+    private Integer colorid;
+    private Goods goods;
+    private GoodsColor goodsColor;
+
+    public Integer getGoodsid() {
+        return goodsid;
+    }
+
+    public void setGoodsid(Integer goodsid) {
+        this.goodsid = goodsid;
+    }
+
+    public Integer getColorid() {
+        return colorid;
+    }
+
+    public void setColorid(Integer colorid) {
+        this.colorid = colorid;
+    }
 
     public Goods getGoods() {
         return goods;
@@ -21,21 +37,4 @@ public class GoodsColorRelationship {
     public void setGoodsColor(GoodsColor goodsColor) {
         this.goodsColor = goodsColor;
     }
-
-    public Integer getGoods_id() {
-        return goods_id;
-    }
-
-    public void setGoods_id(Integer goods_id) {
-        this.goods_id = goods_id;
-    }
-
-    public Integer getColor_id() {
-        return color_id;
-    }
-
-    public void setColor_id(Integer color_id) {
-        this.color_id = color_id;
-    }
-
 }

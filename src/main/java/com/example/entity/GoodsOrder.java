@@ -3,16 +3,88 @@ package com.example.entity;
 import java.util.Date;
 
 public class GoodsOrder {
-    private Integer order_id;
-    private Integer user_id;
-    private String order_number;
-    private Integer order_status;
-    private String order_address;
-    private Float order_fee;
-    private Date order_date;
-    private String order_express_number;
-    private String order_express_name;
-    private User user = new User();
+    private Integer orderid;
+    private Integer userid;
+    private String ordernumber;
+    private Integer orderstatus;
+    private String orderaddress;
+    private Float orderfee;
+    private Date orderdate;
+    private String orderexpressnumber;
+    private String orderexpressname;
+    private User user;
+
+    public Integer getOrderid() {
+        return orderid;
+    }
+
+    public void setOrderid(Integer orderid) {
+        this.orderid = orderid;
+    }
+
+    public Integer getUserid() {
+        return userid;
+    }
+
+    public void setUserid(Integer userid) {
+        this.userid = userid;
+    }
+
+    public String getOrdernumber() {
+        return ordernumber;
+    }
+
+    public void setOrdernumber(String ordernumber) {
+        this.ordernumber = ordernumber;
+    }
+
+    public Integer getOrderstatus() {
+        return orderstatus;
+    }
+
+    public void setOrderstatus(Integer orderstatus) {
+        this.orderstatus = orderstatus;
+    }
+
+    public String getOrderaddress() {
+        return orderaddress;
+    }
+
+    public void setOrderaddress(String orderaddress) {
+        this.orderaddress = orderaddress;
+    }
+
+    public Float getOrderfee() {
+        return orderfee;
+    }
+
+    public void setOrderfee(Float orderfee) {
+        this.orderfee = orderfee;
+    }
+
+    public Date getOrderdate() {
+        return orderdate;
+    }
+
+    public void setOrderdate(Date orderdate) {
+        this.orderdate = orderdate;
+    }
+
+    public String getOrderexpressnumber() {
+        return orderexpressnumber;
+    }
+
+    public void setOrderexpressnumber(String orderexpressnumber) {
+        this.orderexpressnumber = orderexpressnumber;
+    }
+
+    public String getOrderexpressname() {
+        return orderexpressname;
+    }
+
+    public void setOrderexpressname(String orderexpressname) {
+        this.orderexpressname = orderexpressname;
+    }
 
     public User getUser() {
         return user;
@@ -20,77 +92,5 @@ public class GoodsOrder {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Integer getOrder_id() {
-        return order_id;
-    }
-
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
-    }
-
-    public Integer getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getOrder_number() {
-        return order_number;
-    }
-
-    public void setOrder_number(String order_number) {
-        this.order_number = order_number;
-    }
-
-    public Integer getOrder_status() {
-        return order_status;
-    }
-
-    public void setOrder_status(Integer order_status) {
-        this.order_status = order_status;
-    }
-
-    public String getOrder_address() {
-        return order_address;
-    }
-
-    public void setOrder_address(String order_address) {
-        this.order_address = order_address;
-    }
-
-    public Float getOrder_fee() {
-        return order_fee;
-    }
-
-    public void setOrder_fee(Float order_fee) {
-        this.order_fee = order_fee;
-    }
-
-    public Date getOrder_date() {
-        return order_date;
-    }
-
-    public void setOrder_date(Date order_date) {
-        this.order_date = order_date;
-    }
-
-    public String getOrder_express_number() {
-        return order_express_number;
-    }
-
-    public void setOrder_express_number(String order_express_number) {
-        this.order_express_number = order_express_number;
-    }
-
-    public String getOrder_express_name() {
-        return order_express_name;
-    }
-
-    public void setOrder_express_name(String order_express_name) {
-        this.order_express_name = order_express_name;
     }
 }

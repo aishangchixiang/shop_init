@@ -1,22 +1,22 @@
 package com.example.entity;
 
 public class GoodsSize {
-    private Integer size_id;
-    private String size_name;
+    private Integer sizeid;
+    private String sizename;
 
-    public Integer getSize_id() {
-        return size_id;
+    public Integer getSizeid() {
+        return sizeid;
     }
 
-    public void setSize_id(Integer size_id) {
-        this.size_id = size_id;
+    public void setSizeid(Integer sizeid) {
+        this.sizeid = sizeid;
     }
 
-    public String getSize_name() {
-        return size_name;
+    public String getSizename() {
+        return sizename;
     }
 
-    public void setSize_name(String size_name) {
-        this.size_name = size_name;
+    public void setSizename(String sizename) {
+        this.sizename = sizename;
     }
 }

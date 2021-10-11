@@ -1,99 +1,103 @@
 package com.example.entity;
 
 public class OrderDetails {
-    private Integer order_details_id;
-    private Integer order_id;
-    private Integer goods_id;
-    private String order_details_name;
-    private String order_details_size;
-    private String order_details_color;
-    private Float order_details_price;
-    private Integer order_details_number;
-    private String order_details_image;
-    private GoodsOrder goods_order = new GoodsOrder();
-    private Goods goods = new Goods();
+    private Integer orderdetailsid;
+    private Integer orderid;
+    private Integer goodsid;
+    private String orderdetailsname;
+    private String orderdetailssize;
+    private String orderdetailscolor;
+    private Float orderdetailsprice;
+    private Integer orderdetailsnumber;
+    private String orderdetailsimage;
+    private GoodsOrder goodsorder;
+    private Goods goods;
 
-    public GoodsOrder getGoods_order() {
-        return goods_order;
+    public Integer getOrderdetailsid() {
+        return orderdetailsid;
     }
 
-    public void setGoods_order(GoodsOrder goods_order) {
-        this.goods_order = goods_order;
+    public void setOrderdetailsid(Integer orderdetailsid) {
+        this.orderdetailsid = orderdetailsid;
     }
 
-    public Goods getGoods() { return goods; }
-
-    public void setGoods(Goods goods) { this.goods = goods; }
-
-    public Integer getOrder_details_id() {
-        return order_details_id;
+    public Integer getOrderid() {
+        return orderid;
     }
 
-    public void setOrder_details_id(Integer order_details_id) {
-        this.order_details_id = order_details_id;
+    public void setOrderid(Integer orderid) {
+        this.orderid = orderid;
     }
 
-    public Integer getOrder_id() {
-        return order_id;
+    public Integer getGoodsid() {
+        return goodsid;
     }
 
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
+    public void setGoodsid(Integer goodsid) {
+        this.goodsid = goodsid;
     }
 
-    public Integer getGoods_id() {
-        return goods_id;
+    public String getOrderdetailsname() {
+        return orderdetailsname;
     }
 
-    public void setGoods_id(Integer goods_id) {
-        this.goods_id = goods_id;
+    public void setOrderdetailsname(String orderdetailsname) {
+        this.orderdetailsname = orderdetailsname;
     }
 
-    public String getOrder_details_name() {
-        return order_details_name;
+    public String getOrderdetailssize() {
+        return orderdetailssize;
     }
 
-    public void setOrder_details_name(String order_details_name) {
-        this.order_details_name = order_details_name;
+    public void setOrderdetailssize(String orderdetailssize) {
+        this.orderdetailssize = orderdetailssize;
     }
 
-    public String getOrder_details_size() {
-        return order_details_size;
+    public String getOrderdetailscolor() {
+        return orderdetailscolor;
     }
 
-    public void setOrder_details_size(String order_details_size) {
-        this.order_details_size = order_details_size;
+    public void setOrderdetailscolor(String orderdetailscolor) {
+        this.orderdetailscolor = orderdetailscolor;
     }
 
-    public String getOrder_details_color() {
-        return order_details_color;
+    public Float getOrderdetailsprice() {
+        return orderdetailsprice;
     }
 
-    public void setOrder_details_color(String order_details_color) {
-        this.order_details_color = order_details_color;
+    public void setOrderdetailsprice(Float orderdetailsprice) {
+        this.orderdetailsprice = orderdetailsprice;
     }
 
-    public Float getOrder_details_price() {
-        return order_details_price;
+    public Integer getOrderdetailsnumber() {
+        return orderdetailsnumber;
     }
 
-    public void setOrder_details_price(Float order_details_price) {
-        this.order_details_price = order_details_price;
+    public void setOrderdetailsnumber(Integer orderdetailsnumber) {
+        this.orderdetailsnumber = orderdetailsnumber;
     }
 
-    public Integer getOrder_details_number() {
-        return order_details_number;
+    public String getOrderdetailsimage() {
+        return orderdetailsimage;
     }
 
-    public String getOrder_details_image() {
-        return order_details_image;
+    public void setOrderdetailsimage(String orderdetailsimage) {
+        this.orderdetailsimage = orderdetailsimage;
     }
 
-    public void setOrder_details_image(String order_details_image) {
-        this.order_details_image = order_details_image;
+    public GoodsOrder getGoodsorder() {
+        return goodsorder;
     }
 
-    public void setOrder_details_number(Integer order_details_number) {
-        this.order_details_number = order_details_number;
+    public void setGoodsorder(GoodsOrder goodsorder) {
+        this.goodsorder = goodsorder;
+    }
+
+    public Goods getGoods() {
+        return goods;
+    }
+
+    public void setGoods(Goods goods) {
+        this.goods = goods;
     }
 }

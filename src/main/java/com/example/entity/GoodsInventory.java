@@ -1,80 +1,80 @@
 package com.example.entity;
 
 public class GoodsInventory {
-    private Integer inventory_id;
-    private Integer goods_id;
-    private Integer size_id;
-    private String size_name;
-    private Integer color_id;
-    private String color_name;
-    private Integer inventory_volume;
-    private Integer sales_volume;
-    private Goods goods = new Goods();
-    private GoodsSize goodsSize = new GoodsSize();
-    private GoodsColor goodsColor = new GoodsColor();
+    private Integer inventoryid;
+    private Integer goodsid;
+    private Integer sizeid;
+    private String sizename;
+    private Integer colorid;
+    private String colorname;
+    private Integer inventoryvolume;
+    private Integer salesvolume;
+    private Goods goods;
+    private GoodsSize goodsSize;
+    private GoodsColor goodsColor;
 
-    public Integer getInventory_id() {
-        return inventory_id;
+    public Integer getInventoryid() {
+        return inventoryid;
     }
 
-    public void setInventory_id(Integer inventory_id) {
-        this.inventory_id = inventory_id;
+    public void setInventoryid(Integer inventoryid) {
+        this.inventoryid = inventoryid;
     }
 
-    public Integer getGoods_id() {
-        return goods_id;
+    public Integer getGoodsid() {
+        return goodsid;
     }
 
-    public void setGoods_id(Integer goods_id) {
-        this.goods_id = goods_id;
+    public void setGoodsid(Integer goodsid) {
+        this.goodsid = goodsid;
     }
 
-    public Integer getSize_id() {
-        return size_id;
+    public Integer getSizeid() {
+        return sizeid;
     }
 
-    public void setSize_id(Integer size_id) {
-        this.size_id = size_id;
+    public void setSizeid(Integer sizeid) {
+        this.sizeid = sizeid;
     }
 
-    public String getSize_name() {
-        return size_name;
+    public String getSizename() {
+        return sizename;
     }
 
-    public void setSize_name(String size_name) {
-        this.size_name = size_name;
+    public void setSizename(String sizename) {
+        this.sizename = sizename;
     }
 
-    public Integer getColor_id() {
-        return color_id;
+    public Integer getColorid() {
+        return colorid;
     }
 
-    public void setColor_id(Integer color_id) {
-        this.color_id = color_id;
+    public void setColorid(Integer colorid) {
+        this.colorid = colorid;
     }
 
-    public String getColor_name() {
-        return color_name;
+    public String getColorname() {
+        return colorname;
     }
 
-    public void setColor_name(String color_name) {
-        this.color_name = color_name;
+    public void setColorname(String colorname) {
+        this.colorname = colorname;
     }
 
-    public Integer getInventory_volume() {
-        return inventory_volume;
+    public Integer getInventoryvolume() {
+        return inventoryvolume;
     }
 
-    public void setInventory_volume(Integer inventory_volume) {
-        this.inventory_volume = inventory_volume;
+    public void setInventoryvolume(Integer inventoryvolume) {
+        this.inventoryvolume = inventoryvolume;
     }
 
-    public Integer getSales_volume() {
-        return sales_volume;
+    public Integer getSalesvolume() {
+        return salesvolume;
     }
 
-    public void setSales_volume(Integer sales_volume) {
-        this.sales_volume = sales_volume;
+    public void setSalesvolume(Integer salesvolume) {
+        this.salesvolume = salesvolume;
     }
 
     public Goods getGoods() {

@@ -1,22 +1,22 @@
 package com.example.entity;
 
 public class GoodsColor {
-    private Integer color_id;
-    private String color_name;
+    private Integer colorid;
+    private String colorname;
 
-    public Integer getColor_id() {
-        return color_id;
+    public Integer getColorid() {
+        return colorid;
     }
 
-    public void setColor_id(Integer color_id) {
-        this.color_id = color_id;
+    public void setColorid(Integer colorid) {
+        this.colorid = colorid;
     }
 
-    public String getColor_name() {
-        return color_name;
+    public String getColorname() {
+        return colorname;
     }
 
-    public void setColor_name(String color_name) {
-        this.color_name = color_name;
+    public void setColorname(String colorname) {
+        this.colorname = colorname;
     }
 }

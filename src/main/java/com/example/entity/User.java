@@ -1,28 +1,28 @@
 package com.example.entity;
 
 public class User {
-    private Integer user_id;
-    private String user_name;
+    private Integer userid;
+    private String username;
     private String password;
     private Integer age;
     private String gender;
     private String email;
     private Integer jurisdiction;
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserid() {
+        return userid;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
